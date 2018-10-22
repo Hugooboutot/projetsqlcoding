@@ -32,7 +32,7 @@ CREATE TABLE service (
   cpost INT(5) NOT NULL,
   ville VARCHAR(40) NOT NULL,
   pays VARCHAR(40) NOT NULL,
-  regdate DATETIME NOT NULL,
+  servicedatetime DATETIME NOT NULL,
   infoplus TEXT,
   PRIMARY KEY (id)
 )
