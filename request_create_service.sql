@@ -1,0 +1,2 @@
+INSERT INTO service (nom, description, adresse, cpost, ville, pays, servicedatetime, infoplus)
+VALUES	('Bricolage', 'Bricolage divers', '34 rue de la République', '75001', 'Paris', '2018-10-27 11:45:00','France', NULL);
