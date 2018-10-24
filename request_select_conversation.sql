@@ -16,12 +16,12 @@ ORDER BY sendtime DESC;
 
 -- Story 11 : Afficher liste services --
 
-SELECT U.pseudo AS Créateur_service, U.telport AS Téléphone_portable, U2.pseudo AS pseudo_inscrit, S.nom, S.description, S.adresse, S.cpost, S.ville, S.pays, S.servicedatetime, S.infoplus
+SELECT U.pseudo AS Créateur_service, U.telportable AS Téléphone_portable, U2.pseudo AS pseudo_inscrit, S.nom, S.description, S.adresse, S.cpost, S.ville, S.pays, S.servicedatetime, S.infoplus
 FROM service AS S
 INNER JOIN user AS U
 	ON U.id = S.id_user
 LEFT JOIN service_user AS SU
-	ON SU.id_user = S.id_user 
+	ON SU.id = S.id
 LEFT JOIN user AS U2
 ON  U2.id = SU.id_user
 WHERE S.id = 3;
