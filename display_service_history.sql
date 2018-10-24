@@ -1,6 +1,11 @@
-SELECT S.*, U.*
-FROM service as S
-INNER JOIN user as U, service_user as T
-	ON S.id_user = T.id_user 
-
+SELECT S.*,
+	(SELECT COUNT(SU.id_user)
+	FROM service_user as SU
+	INNER JOIN service as S
+	ON S.id_user = SU.id_user WHERE S.id_user = 1
+	)
+	 as TOTAL 
+FROM service_user as SU
+INNER JOIN service as S
+	ON S.id = SU.id_user WHERE S.id_user = 1
 ORDER BY S.servicedatetime DESC, S.ville ASC;
