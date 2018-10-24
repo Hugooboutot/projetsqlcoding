@@ -6,4 +6,4 @@ AND S.id NOT IN
 		SELECT id_user
 		FROM service_user
 	)
-ORDER BY servicedatetime, ville ASC;
+ORDER BY servicedatetime DESC, ville ASC;
