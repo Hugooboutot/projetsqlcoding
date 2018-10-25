@@ -1,11 +1,13 @@
-SELECT S.*,
-	(SELECT COUNT(SU.id_user)
+SELECT S.*, U.pseudo, U.email, U.telportable, 
+	(SELECT COUNT(SU.id)
 	FROM service_user as SU
-	INNER JOIN service as S
-	ON S.id_user = SU.id_user WHERE S.id_user = 1
+	INNER JOIN user as U
+	ON SU.id_user = U.id WHERE U.id = 19
 	)
-	 as TOTAL 
+	 as TOTAL
 FROM service_user as SU
-INNER JOIN service as S
-	ON S.id = SU.id_user WHERE S.id_user = 1
+INNER JOIN user as U
+	ON U.id = SU.id_user
+LEFT JOIN service as S
+	ON S.id = SU.id_service WHERE SU.id_user = 19
 ORDER BY S.servicedatetime DESC, S.ville ASC;
