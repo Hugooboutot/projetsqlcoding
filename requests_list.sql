@@ -3,7 +3,7 @@
 --------------------------------------------------------------- */
 
 INSERT INTO user(email, mdp, pseudo, regdate)
-VALUES ('Jarnhaut@gmail.com', 'gdeuxgosses', 'Jarnhaut', '2018/10/22')
+VALUES ('Jarnhaut@gmail.com', 'gdeuxgosses', 'Jarnhaut', '2018/10/22');
 
 /* ---------------------------------------------------------------
 							STORY 4
@@ -11,13 +11,14 @@ VALUES ('Jarnhaut@gmail.com', 'gdeuxgosses', 'Jarnhaut', '2018/10/22')
 
 UPDATE user
 SET adresse = "1 rue lambda", cpost = "12345", ville = "ville1", pays = "France", telportable = "0607080910", telfixe = NULL;
+WHERE id = 1;
 
 /* ---------------------------------------------------------------
 							STORY 5
 --------------------------------------------------------------- */
 
-INSERT INTO service (nom, description, adresse, cpost, ville, pays, servicedatetime, infoplus)
-VALUES	('Bricolage', 'Bricolage divers', '34 rue de la République', '75001', 'Paris', '2018-10-27 11:45:00','France', NULL);
+INSERT INTO service (id_user, nom, description, adresse, cpost, ville, pays, servicedatetime, infoplus)
+VALUES	(1, 'Bricolage2', 'Bricolage divers', '34 rue de la République', '75001', 'Paris','France', '2018-10-27 11:45:00', NULL);
 
 /* ---------------------------------------------------------------
 							STORY 6
@@ -30,8 +31,8 @@ VALUES	(10, 10);
 							STORY 7
 --------------------------------------------------------------- */
 
-INSERT INTO message ( id_sender , id_receiver , content )
-VALUES  (1, 2, 'sample_text');
+INSERT INTO message (id_sender, id_receiver, content)
+VALUES  (1, 2, 'sampletext');
 
 /* ---------------------------------------------------------------
 							STORY 8
@@ -61,7 +62,7 @@ FROM service as S
 WHERE servicedatetime >= CURRENT_TIMESTAMP 
 AND S.id NOT IN
 	(
-		SELECT id_user
+		SELECT id_service
 		FROM service_user
 	)
 ORDER BY servicedatetime DESC, ville ASC;
